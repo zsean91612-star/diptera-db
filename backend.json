@@ -1,0 +1,8 @@
+{
+  "provider": "firebase",
+  "projectId": "",
+  "apiKey": "",
+  "authDomain": "",
+  "sharedEmail": "editor@diptera-db.web",
+  "docPath": "public/overrides"
+}

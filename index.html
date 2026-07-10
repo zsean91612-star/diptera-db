@@ -590,21 +590,34 @@ document.getElementById("search").addEventListener("input", e => {
   renderGrid();
 });
 
-// 後台修訂：載入 overrides.json，即時套用到記錄（不需重建）。
-async function loadOverrides() {
+// 後台修訂：優先讀 Firestore（即時），失敗才用靜態 overrides.json。
+async function fetchOverrides() {
   try {
-    const r = await fetch("overrides.json?_=" + Date.now());
-    if (!r.ok) return;
-    const ov = await r.json();
-    const recs = (ov && ov.records) || {};
-    for (const p of POSTS) {
-      const o = recs[p.post_id];
-      if (!o) continue;
-      if (o.species) p.species = o.species;
-      if (o.scientific !== undefined && o.scientific !== null) p.scientific = o.scientific;
-      p._corrected = true;
+    const cfg = await (await fetch("backend.json?_=" + Date.now())).json();
+    if (cfg && cfg.projectId && cfg.apiKey) {
+      const url = `https://firestore.googleapis.com/v1/projects/${cfg.projectId}/databases/(default)/documents/${cfg.docPath}?key=${cfg.apiKey}`;
+      const r = await fetch(url);
+      if (r.ok) {
+        const j = await r.json();
+        const s = j.fields && j.fields.data && j.fields.data.stringValue;
+        return s ? JSON.parse(s) : { records: {}, species_notes: {} };
+      }
+      if (r.status === 404) return { records: {}, species_notes: {} };
     }
-  } catch (e) { /* 沒有 overrides.json 就照原資料 */ }
+  } catch (e) { /* 後端未設定或失敗 → fallback */ }
+  try { const r = await fetch("overrides.json?_=" + Date.now()); if (r.ok) return await r.json(); } catch (e) {}
+  return { records: {}, species_notes: {} };
+}
+async function loadOverrides() {
+  const ov = await fetchOverrides();
+  const recs = (ov && ov.records) || {};
+  for (const p of POSTS) {
+    const o = recs[p.post_id];
+    if (!o) continue;
+    if (o.species) p.species = o.species;
+    if (o.scientific !== undefined && o.scientific !== null) p.scientific = o.scientific;
+    p._corrected = true;
+  }
 }
 (async () => {
   await loadOverrides();
