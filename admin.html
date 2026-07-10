@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>雙翅目資料庫 · 後台</title>
+<style>
+  :root{
+    --bg:#f3f7fa; --card:#fff; --accent:#2f6f8f; --accent-light:#e6f0f5; --accent2:#1f4f66;
+    --text:#1a2e38; --muted:#5a7686; --border:#c5d7e0; --ok:#2e7d32; --warn:#b26a00; --ng:#c62828;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--text);}
+  header{background:var(--accent);color:#fff;padding:.8rem 1.3rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;}
+  header h1{font-size:1.15rem;}
+  header .nav{margin-left:auto;display:flex;gap:.6rem;align-items:center;}
+  header .nav a{color:#fff;opacity:.85;text-decoration:none;font-size:.85rem;}
+  header .nav a:hover{opacity:1;}
+  #whoami{font-size:.8rem;opacity:.9;}
+  .wrap{max-width:980px;margin:1.5rem auto;padding:0 1.1rem;}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.2rem;margin-bottom:1.2rem;}
+  h2{font-size:1.05rem;margin-bottom:.7rem;color:var(--accent2);}
+  p.hint{font-size:.85rem;color:var(--muted);line-height:1.7;margin-bottom:.8rem;}
+  input,textarea,button,select{font-family:inherit;font-size:.9rem;}
+  input[type=text],input[type=password],textarea,select{
+    width:100%;padding:.55rem .7rem;border:1px solid var(--border);border-radius:8px;background:#fff;color:var(--text);
+  }
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-light);}
+  textarea{min-height:70px;resize:vertical;}
+  .btn{padding:.55rem 1rem;border:none;border-radius:8px;font-weight:600;cursor:pointer;background:var(--accent);color:#fff;}
+  .btn:hover{background:var(--accent2);}
+  .btn.sec{background:var(--accent-light);color:var(--accent2);}
+  .btn.ghost{background:transparent;border:1px solid var(--border);color:var(--muted);}
+  .btn.danger{background:var(--ng);}
+  .btn:disabled{opacity:.5;cursor:not-allowed;}
+  .row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;}
+  .tabs{display:flex;gap:.4rem;margin-bottom:1rem;}
+  .tab{padding:.5rem 1rem;border-radius:8px;cursor:pointer;background:var(--card);border:1px solid var(--border);font-weight:600;color:var(--muted);}
+  .tab.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .msg{padding:.6rem .8rem;border-radius:8px;font-size:.85rem;margin-top:.7rem;display:none;}
+  .msg.ok{background:#e7f4e8;color:var(--ok);display:block;}
+  .msg.err{background:#fdeaea;color:var(--ng);display:block;}
+  .msg.info{background:var(--accent-light);color:var(--accent2);display:block;}
+  .rec-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin-top:.9rem;}
+  .rec{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#fff;cursor:pointer;transition:border-color .15s;}
+  .rec:hover{border-color:var(--accent);}
+  .rec img{width:100%;height:120px;object-fit:cover;background:var(--accent-light);}
+  .rec .rb{padding:.5rem .6rem;}
+  .rec .sp{font-weight:600;font-size:.85rem;color:var(--accent2);}
+  .rec .sci{font-size:.72rem;color:var(--muted);font-style:italic;}
+  .rec .au{font-size:.72rem;color:var(--muted);margin-top:.2rem;}
+  .rec .corr{font-size:.6rem;background:var(--accent2);color:#fff;border-radius:4px;padding:.05rem .3rem;margin-left:.3rem;}
+  .field{margin-bottom:.7rem;}
+  .field label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.25rem;}
+  .overlay{position:fixed;inset:0;background:#0007;display:none;align-items:center;justify-content:center;padding:1rem;z-index:50;}
+  .overlay.open{display:flex;}
+  .modal{background:#fff;border-radius:14px;max-width:460px;width:100%;padding:1.3rem;}
+  .modal h3{font-size:1rem;margin-bottom:.9rem;color:var(--accent2);}
+  .note-item{display:flex;gap:.5rem;align-items:flex-start;background:var(--accent-light);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:.5rem .7rem;margin-bottom:.5rem;font-size:.85rem;}
+  .note-item button{margin-left:auto;flex:0 0 auto;}
+  #publishBar{position:sticky;bottom:0;background:var(--card);border-top:1px solid var(--border);padding:.8rem 1.1rem;display:flex;align-items:center;gap:.8rem;}
+  #dirtyDot{font-size:.85rem;color:var(--warn);}
+  .count{font-size:.78rem;color:var(--muted);}
+</style>
+</head>
+<body>
+<header>
+  <h1>🪰 雙翅目資料庫 · 後台</h1>
+  <div class="nav">
+    <a href="index.html">← 回網站</a>
+    <span id="whoami"></span>
+    <a href="#" id="logoutBtn" style="display:none">登出</a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <!-- 登入 -->
+  <div class="card" id="loginCard">
+    <h2>🔑 登入</h2>
+    <p class="hint">
+      用 GitHub Personal Access Token 登入（等於後台密碼）。<br>
+      建議用 <b>Fine-grained token</b>，Repository 只勾 <code>zsean91612-star/diptera-db</code>，權限 <b>Contents: Read and write</b>。<br>
+      Token 只存在你這台瀏覽器（localStorage），不會外傳。
+    </p>
+    <div class="field">
+      <label>GitHub Token</label>
+      <input type="password" id="tokenInput" placeholder="github_pat_… 或 ghp_…" autocomplete="off">
+    </div>
+    <div class="row">
+      <button class="btn" id="loginBtn">登入</button>
+      <label style="font-size:.8rem;color:var(--muted)"><input type="checkbox" id="remember" checked> 記住我</label>
+    </div>
+    <div class="msg" id="loginMsg"></div>
+  </div>
+
+  <!-- 主程式 -->
+  <div id="app" hidden>
+    <div class="tabs">
+      <div class="tab active" data-tab="fix">🔧 修正鑑定</div>
+      <div class="tab" data-tab="notes">🎯 補充特徵</div>
+    </div>
+
+    <!-- 修正鑑定 -->
+    <div class="card" id="tab-fix">
+      <h2>修正抓錯的鑑定</h2>
+      <p class="hint">搜尋要修正的紀錄（作者 / 物種 / 學名），點卡片編輯正確的中文名與學名。修改會即時反映在「野外觀察紀錄」頁。</p>
+      <input type="text" id="fixSearch" placeholder="🔍 搜尋作者、物種、學名…（至少 1 字）">
+      <div class="count" id="fixCount"></div>
+      <div class="rec-list" id="recList"></div>
+    </div>
+
+    <!-- 補充特徵 -->
+    <div class="card" id="tab-notes" hidden>
+      <h2>補充鑑定特徵</h2>
+      <p class="hint">選一個物種，加入你要補充的辨識特徵。會即時顯示在「物種圖鑑」該物種的「🔧 後台補充特徵」區。</p>
+      <div class="field">
+        <label>選擇物種</label>
+        <input type="text" id="spSearch" placeholder="🔍 搜尋物種或學名…" autocomplete="off">
+        <select id="spSelect" size="8" style="margin-top:.5rem"></select>
+      </div>
+      <div id="noteEditor" hidden>
+        <div id="noteList"></div>
+        <div class="field">
+          <label>新增一條特徵</label>
+          <textarea id="noteInput" placeholder="例如：翅膀有一條黑色斜帶，是與近似種最快的分辨點。"></textarea>
+        </div>
+        <button class="btn" id="addNoteBtn">＋ 新增特徵</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 發布列 -->
+<div id="publishBar" hidden>
+  <span id="dirtyDot"></span>
+  <span class="count" id="pubCount"></span>
+  <button class="btn" id="publishBtn" style="margin-left:auto" disabled>💾 發布到網站</button>
+</div>
+
+<!-- 編輯紀錄 modal -->
+<div class="overlay" id="fixOverlay">
+  <div class="modal">
+    <h3>修正鑑定</h3>
+    <div id="fixPreview"></div>
+    <div class="field"><label>物種中文名</label><input type="text" id="fixCommon"></div>
+    <div class="field"><label>學名</label><input type="text" id="fixSci" placeholder="例如 Nephrotoma sp."></div>
+    <div class="row" style="margin-top:.5rem">
+      <button class="btn" id="fixSave">儲存修正</button>
+      <button class="btn ghost" id="fixCancel">取消</button>
+      <button class="btn danger" id="fixReset" style="margin-left:auto">還原原鑑定</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const REPO = "zsean91612-star/diptera-db";
+const API = `https://api.github.com/repos/${REPO}/contents/overrides.json`;
+let token = "";
+let overrides = { records: {}, species_notes: {} };
+let sha = null;
+let data = { records: [], species: [] };
+let dirty = false;
+let editingPid = null;
+
+const $ = id => document.getElementById(id);
+
+// ── 登入 ──
+function ghHeaders(){ return { "Authorization":"Bearer "+token, "Accept":"application/vnd.github+json" }; }
+
+async function login(tok){
+  const msg = $("loginMsg");
+  msg.className = "msg info"; msg.textContent = "驗證中…";
+  try {
+    const rr = await fetch(`https://api.github.com/repos/${REPO}`, { headers: ghHeaders() });
+    if(!rr.ok){ throw new Error(rr.status===401?"Token 無效或已過期":rr.status===404?"這個 Token 沒有這個 repo 的權限":"GitHub 回應 "+rr.status); }
+    const repo = await rr.json();
+    if(!repo.permissions || !repo.permissions.push){ throw new Error("這個 Token 沒有寫入權限（需 Contents: Read and write）"); }
+    $("whoami").textContent = "已登入";
+    if($("remember").checked) localStorage.setItem("gh_token", tok);
+    await loadData();
+    msg.className="msg"; msg.textContent="";
+    $("loginCard").hidden = true; $("app").hidden = false; $("publishBar").hidden = false;
+    $("logoutBtn").style.display = "";
+  } catch(e){
+    msg.className="msg err"; msg.textContent = "登入失敗：" + e.message;
+    token = "";
+  }
+}
+
+async function loadData(){
+  const d = await (await fetch("admin_data.json?_="+Date.now())).json();
+  data = d;
+  // 讀現有 overrides（取 sha 供之後更新）
+  const r = await fetch(API+"?ref=main", { headers: ghHeaders() });
+  if(r.ok){
+    const j = await r.json(); sha = j.sha;
+    try { overrides = JSON.parse(decodeURIComponent(escape(atob(j.content.replace(/\n/g,""))))); }
+    catch(e){ overrides = {records:{},species_notes:{}}; }
+  } else { sha = null; overrides = {records:{},species_notes:{}}; }
+  overrides.records = overrides.records || {};
+  overrides.species_notes = overrides.species_notes || {};
+  renderFix(); buildSpeciesSelect(); updateDirty(false);
+}
+
+// ── 修正鑑定 ──
+function effSpecies(rec){
+  const o = overrides.records[rec.post_id];
+  return { common: o&&o.species ? o.species : rec.species, sci: o&&o.scientific!=null ? o.scientific : rec.scientific, corrected: !!o };
+}
+function renderFix(){
+  const q = ($("fixSearch").value||"").trim().toLowerCase();
+  const list = $("recList");
+  if(!q){ list.innerHTML=""; $("fixCount").textContent="輸入關鍵字以搜尋紀錄"; return; }
+  const hits = data.records.filter(r=>{
+    const e = effSpecies(r);
+    return (r.author+" "+e.common+" "+e.sci+" "+r.post_id+" "+r.family).toLowerCase().includes(q);
+  }).slice(0,60);
+  $("fixCount").textContent = `${hits.length} 筆${hits.length>=60?"（僅顯示前 60）":""}`;
+  list.innerHTML = hits.map(r=>{
+    const e = effSpecies(r);
+    const img = r.img ? `<img src="images/${r.img}" loading="lazy" onerror="this.style.display='none'">` : `<div style="height:120px;display:grid;place-items:center;font-size:2rem;background:var(--accent-light)">🪰</div>`;
+    return `<div class="rec" onclick="openFix('${r.post_id}')">${img}
+      <div class="rb"><div class="sp">${esc(e.common||"（未知）")}${e.corrected?'<span class="corr">已修訂</span>':''}</div>
+      <div class="sci">${esc(e.sci||"")}</div><div class="au">${esc(r.author||"")}</div></div></div>`;
+  }).join("");
+}
+function openFix(pid){
+  const r = data.records.find(x=>x.post_id===pid); if(!r) return;
+  editingPid = pid;
+  const e = effSpecies(r);
+  $("fixPreview").innerHTML = (r.img?`<img src="images/${r.img}" style="width:100%;max-height:200px;object-fit:contain;background:var(--accent-light);border-radius:8px;margin-bottom:.7rem">`:"")
+    + `<p class="hint">作者：${esc(r.author)}　·　<a href="${r.post_url}" target="_blank">原貼文 ↗</a><br>原始鑑定：${esc(r.species||"（未鑑定）")} ${esc(r.scientific||"")}</p>`;
+  $("fixCommon").value = e.common||""; $("fixSci").value = e.sci||"";
+  $("fixOverlay").classList.add("open");
+}
+$("fixSave").onclick = ()=>{
+  const r = data.records.find(x=>x.post_id===editingPid);
+  const common = $("fixCommon").value.trim(), sci = $("fixSci").value.trim();
+  // 與原始相同就不記；不同才寫入 override
+  if(common===(r.species||"") && sci===(r.scientific||"")){ delete overrides.records[editingPid]; }
+  else { overrides.records[editingPid] = { species: common, scientific: sci }; }
+  $("fixOverlay").classList.remove("open"); updateDirty(true); renderFix();
+};
+$("fixReset").onclick = ()=>{ delete overrides.records[editingPid]; $("fixOverlay").classList.remove("open"); updateDirty(true); renderFix(); };
+$("fixCancel").onclick = ()=> $("fixOverlay").classList.remove("open");
+$("fixSearch").oninput = renderFix;
+
+// ── 補充特徵 ──
+let curSpKey = null;
+function buildSpeciesSelect(){
+  const q = ($("spSearch").value||"").trim().toLowerCase();
+  const sel = $("spSelect");
+  const items = data.species.filter(s=> !q || (s.common+" "+s.scientific+" "+s.family).toLowerCase().includes(q)).slice(0,300);
+  sel.innerHTML = items.map(s=>{
+    const n = (overrides.species_notes[s.key]||[]).length;
+    const label = (s.common||s.key) + (s.scientific&&s.scientific!==s.common?` — ${s.scientific}`:"") + `　[${s.family.split(" ")[0]}]` + (n?`　🔧${n}`:"");
+    return `<option value="${esc(s.key)}">${esc(label)}</option>`;
+  }).join("");
+}
+$("spSearch").oninput = buildSpeciesSelect;
+$("spSelect").onchange = ()=>{ curSpKey = $("spSelect").value; renderNotes(); };
+function renderNotes(){
+  $("noteEditor").hidden = !curSpKey;
+  if(!curSpKey) return;
+  const arr = overrides.species_notes[curSpKey] || [];
+  $("noteList").innerHTML = arr.length ? arr.map((n,i)=>
+    `<div class="note-item"><span>${esc(n)}</span><button class="btn danger" onclick="delNote(${i})">刪</button></div>`).join("")
+    : `<p class="hint">這個物種還沒有後台補充特徵。</p>`;
+}
+function delNote(i){ overrides.species_notes[curSpKey].splice(i,1); if(!overrides.species_notes[curSpKey].length) delete overrides.species_notes[curSpKey]; updateDirty(true); renderNotes(); buildSpeciesSelect(); }
+$("addNoteBtn").onclick = ()=>{
+  const t = $("noteInput").value.trim(); if(!t||!curSpKey) return;
+  (overrides.species_notes[curSpKey] = overrides.species_notes[curSpKey]||[]).push(t);
+  $("noteInput").value=""; updateDirty(true); renderNotes(); buildSpeciesSelect();
+};
+
+// ── 發布 ──
+function updateDirty(d){
+  dirty = d;
+  const nr = Object.keys(overrides.records).length, nn = Object.values(overrides.species_notes).reduce((s,a)=>s+a.length,0);
+  $("pubCount").textContent = `修正 ${nr} 筆 · 補充特徵 ${nn} 條`;
+  $("dirtyDot").textContent = dirty ? "● 有未發布的修改" : "✓ 已同步";
+  $("publishBtn").disabled = !dirty;
+}
+$("publishBtn").onclick = async ()=>{
+  $("publishBtn").disabled = true; $("dirtyDot").textContent = "發布中…";
+  try {
+    const body = {
+      message: "後台更新 overrides（修訂鑑定/補充特徵）",
+      content: btoa(unescape(encodeURIComponent(JSON.stringify(overrides,null,2)))),
+      branch: "main",
+    };
+    if(sha) body.sha = sha;
+    const r = await fetch(API, { method:"PUT", headers: ghHeaders(), body: JSON.stringify(body) });
+    if(!r.ok){ const j=await r.json().catch(()=>({})); throw new Error(j.message||("HTTP "+r.status)); }
+    const j = await r.json(); sha = j.content.sha;
+    updateDirty(false);
+    $("dirtyDot").textContent = "✓ 已發布！網站約 1 分鐘後更新";
+  } catch(e){
+    $("dirtyDot").textContent = "❌ 發布失敗：" + e.message; $("publishBtn").disabled = false;
+  }
+};
+
+function esc(s){ return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+// tabs
+document.querySelectorAll(".tab").forEach(t=> t.onclick = ()=>{
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  t.classList.add("active");
+  $("tab-fix").hidden = t.dataset.tab!=="fix";
+  $("tab-notes").hidden = t.dataset.tab!=="notes";
+});
+
+$("loginBtn").onclick = ()=>{ token = $("tokenInput").value.trim(); if(token) login(token); };
+$("tokenInput").addEventListener("keydown", e=>{ if(e.key==="Enter"){ token=$("tokenInput").value.trim(); if(token) login(token); }});
+$("logoutBtn").onclick = (e)=>{ e.preventDefault(); localStorage.removeItem("gh_token"); location.reload(); };
+
+// 自動登入（記住的 token）
+window.addEventListener("DOMContentLoaded", ()=>{
+  const saved = localStorage.getItem("gh_token");
+  if(saved){ $("tokenInput").value = saved; token = saved; login(saved); }
+});
+</script>
+</body>
+</html>
