@@ -169,6 +169,7 @@ const $ = id => document.getElementById(id);
 function ghHeaders(){ return { "Authorization":"Bearer "+token, "Accept":"application/vnd.github+json" }; }
 
 async function login(tok){
+  token = tok;
   const msg = $("loginMsg");
   msg.className = "msg info"; msg.textContent = "驗證中…";
   try {
