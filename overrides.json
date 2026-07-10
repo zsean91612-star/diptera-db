@@ -1,1 +1,13 @@
-{"records":{},"species_notes":{}}
+{
+  "records": {
+    "1550693003363987": {
+      "species": "亮大蚊",
+      "scientific": "TEST_SCI_sp."
+    }
+  },
+  "species_notes": {
+    "Muscoidea": [
+      "【後台測試】這是一條測試特徵，稍後會刪除。"
+    ]
+  }
+}
