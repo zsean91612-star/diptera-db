@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>精選辨識紀錄 — 台灣雙翅目觀察資料庫</title>
+<style>
+  :root{--bg:#f3f7fa;--card:#fff;--accent:#2f6f8f;--al:#e6f0f5;--a2:#1f4f66;--tx:#1a2e38;--mu:#5a7686;--bd:#c5d7e0;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,"Noto Sans TC",sans-serif;background:var(--bg);color:var(--tx);}
+  header{background:var(--accent);color:#fff;padding:.75rem 1.3rem;display:flex;align-items:center;gap:1rem;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.2);}
+  header h1{font-size:1.1rem;font-weight:700;}
+  header .sub{font-size:.78rem;opacity:.85;}
+  .nav{margin-left:auto;display:flex;gap:.55rem;}
+  .nav a{color:rgba(255,255,255,.82);text-decoration:none;font-size:.82rem;padding:.22rem .62rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);}
+  .nav a:hover,.nav a.active{background:rgba(255,255,255,.2);color:#fff;}
+  main{max-width:860px;margin:0 auto;padding:1.5rem 1rem 3rem;}
+  .page-title{font-size:1.35rem;font-weight:700;color:var(--accent);margin-bottom:.25rem;}
+  .page-sub{color:var(--mu);font-size:.88rem;margin-bottom:1.4rem;}
+  .filter-row{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1.2rem;}
+  .filt-btn{padding:.25rem .7rem;border-radius:999px;border:1.5px solid var(--bd);background:var(--card);font-size:.78rem;cursor:pointer;color:var(--tx);transition:all .12s;}
+  .filt-btn:hover,.filt-btn.active{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .edu-card{background:var(--card);border:1px solid var(--bd);border-radius:12px;overflow:hidden;margin-bottom:1.2rem;box-shadow:0 1px 5px rgba(0,0,0,.06);display:flex;gap:0;}
+  .edu-img{width:140px;min-width:140px;background:#111;position:relative;}
+  .edu-img img{width:100%;height:100%;object-fit:cover;display:block;}
+  .edu-img-ph{width:100%;height:100%;min-height:130px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;background:var(--al);}
+  .edu-body{flex:1;padding:1rem 1.1rem;min-width:0;}
+  .edu-top{display:flex;align-items:flex-start;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap;}
+  .edu-sp{font-size:1.05rem;font-weight:700;color:var(--a2);}
+  .edu-sci{font-size:.8rem;color:var(--mu);font-style:italic;}
+  .edu-family{font-size:.72rem;background:var(--al);color:var(--a2);padding:.1rem .45rem;border-radius:999px;border:1px solid #b2dfcf;}
+  .conf-badge{font-size:.7rem;padding:.1rem .42rem;border-radius:999px;margin-left:auto;}
+  .conf-hi{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;}
+  .conf-md{background:#fff3e0;color:#8c4e00;border:1px solid #ffcc80;}
+  .edu-evidence{font-size:.84rem;line-height:1.7;color:var(--tx);background:var(--al);border-left:3px solid var(--accent);padding:.6rem .85rem;border-radius:0 8px 8px 0;margin-bottom:.65rem;}
+  .edu-evidence strong{color:var(--a2);}
+  .edu-footer{display:flex;align-items:center;gap:.7rem;}
+  .edu-author{font-size:.76rem;color:var(--mu);}
+  .edu-link{font-size:.78rem;color:var(--accent);text-decoration:none;padding:.2rem .55rem;border:1px solid var(--bd);border-radius:6px;}
+  .edu-link:hover{background:var(--al);}
+  .empty{text-align:center;color:var(--mu);padding:3rem;}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🪰 台灣雙翅目觀察資料庫</h1>
+    <div class="sub">雙翅目 Diptera 野外觀察紀錄</div>
+  </div>
+  <nav class="nav">
+    <a href="index.html">野外觀察紀錄</a>
+    <a href="species.html">物種圖鑑</a>
+    <a href="edu.html" class="active">精選辨識</a>
+    <a href="quiz.html">物種測驗</a>
+  </nav>
+</header>
+<main>
+  <div class="page-title">🔬 精選辨識紀錄</div>
+  <div class="page-sub">由林玉米、黃千育、Lin Kai Ti、吳宗學等社團專家確認並說明辨識依據的代表性觀察紀錄</div>
+  <div class="filter-row" id="filters"></div>
+  <div id="cards"><div class="edu-card" data-fam="糞蠅科 Scathophagidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1132553588511266/201c228cb22c1477.jpg" alt="糞蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">糞蠅</div>
+        <div class="edu-sci">Scathophaga sp.</div>
+      </div>
+      <span class="edu-family">糞蠅科 Scathophagidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti Scathophaga sp.；林玉米#Scathophagidae糞蠅科</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 蔡麗香</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1132553588511266" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1065929781840314/6dc0538f1a27de91.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Asiobaccha nubilipennis</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>吳宗學留言 Asiobaccha nubilipennis；林玉米#Syrphidae</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Bill Young</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1065929781840314" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="實蠅科 Tephritidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1124621499304475/d45b7a6e6df2794b.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Bactrocera obscurata</div>
+      </div>
+      <span class="edu-family">實蠅科 Tephritidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Bactrocera obscurata，寄主黃心柿</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 施禮正</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1124621499304475" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1036037458162880/409a0a701745c53b.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Baccha maculipennis</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Baccha maculipennis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 徐志文</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1036037458162880" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1545409463892341/3c6747217a3bd092.jpg" alt="謝氏歐塔實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">謝氏歐塔實蠅</div>
+        <div class="edu-sci">Ortalotrypeta ziae</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育留言 Ortalotrypeta ziae 謝氏歐塔實蠅</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李潛龍</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1545409463892341" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1459275725839049/a87fce241f4c1f42.jpg" alt="酷肖蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">酷肖蚜蠅</div>
+        <div class="edu-sci">Monoceromyia similis</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu鑑定為Monoceromyia similis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李志穎</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1459275725839049" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1083281096771849/006e684214094117.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Euphranta chrysopila</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Euphranta chrysopila，實蠅科</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 張君基</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1083281096771849" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1038607241239235/a973fd2550bb4577.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Eristalinus paria</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Eristalinus paria</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 吳冠霖</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1038607241239235" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1177458827354075/ddbd46eb09876184.jpg" alt=""></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">Acroceratitis plumosa</div>
+        <div class="edu-sci">Acroceratitis plumosa</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育確認Acroceratitis plumosa</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 羅美玲</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1177458827354075" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="蚊科 Culicidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1232309565202334/ebee1c28c518f9db.jpg" alt="白線斑蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">白線斑蚊</div>
+        <div class="edu-sci">Aedes albopictus</div>
+      </div>
+      <span class="edu-family">蚊科 Culicidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>作者標註#白線斑蚊Aedes albopictus</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 蔡育峰</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1232309565202334" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="實蠅科 Tephritidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1043111650788794/9b1ad2466d544e01.jpg" alt="東方果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">東方果實蠅</div>
+        <div class="edu-sci">Bactrocera dorsalis</div>
+      </div>
+      <span class="edu-family">實蠅科 Tephritidae</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Bactrocera dorsalis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 郭少亭</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1043111650788794" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1037374631362496/ed387351ba70cc1b.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Anomoia approximata</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Anomoia approximata</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Tyus Ma</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1037374631362496" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1545484233884864/970417d953f98432.png" alt="普西黑翅實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">普西黑翅實蠅</div>
+        <div class="edu-sci">Ptilona persimilis</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Ptilona persimilis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 吳靖惠</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1545484233884864" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035986314834661/89987fd744fa5c4c.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Trypeta luteonota</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-hi">信心 90%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Trypeta luteonota</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 詹愷崴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035986314834661" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="縞蠅科 Lauxaniidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1459847755781846/a555ecc422465422.jpg" alt="縞蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">縞蠅</div>
+        <div class="edu-sci">Homoneura quinquevittata</div>
+      </div>
+      <span class="edu-family">縞蠅科 Lauxaniidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定為Homoneura quinquevittata</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Jyh Jong Cherng</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1459847755781846" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="大蚊科 Tipulidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1507864544313500/145d819174a7420b.jpg" alt="大蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">大蚊</div>
+        <div class="edu-sci">Tipula subapterogyne</div>
+      </div>
+      <span class="edu-family">大蚊科 Tipulidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃棕堡鑑定Tipula(Vestiplex) subapterogyne</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 王莆</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1507864544313500" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1283489550084335/dd66a45d61b43262.jpg" alt="水虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">水虻</div>
+        <div class="edu-sci">Nigritomyia fulvicollis</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Nigritomyia fulvicollis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Takun Lahang</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1283489550084335" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="蚊科 Culicidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1300329161733707/f673e1f5e8a6a68b.jpg" alt="瘧蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">瘧蚊</div>
+        <div class="edu-sci">Anopheles takasagoensis</div>
+      </div>
+      <span class="edu-family">蚊科 Culicidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Anopheles takasagoensis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 林佑昇</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1300329161733707" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1084691849964107/eac4bdce33a0a412.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Asiobaccha sauteri</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu鑑定Asiobaccha sauteri，食蚜蠅科</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 羅美玲</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1084691849964107" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1189737879459503/9bda4dc7aa1dfb82.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Brachypalpoides sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu更正確認Brachypalpoides sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 羅美玲</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1189737879459503" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="廣口蠅科 Platystomatidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1040641484369144/be665936afc61732.jpg" alt="廣口蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">廣口蠅</div>
+        <div class="edu-sci">Plagiostenopterina sp.</div>
+      </div>
+      <span class="edu-family">廣口蠅科 Platystomatidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti：Plagiostenopterina屬</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 羅美玲</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1040641484369144" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1034233711676588/1835f0e1473c508f.jpg" alt="水蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">水蠅</div>
+        <div class="edu-sci">Ochthera sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Ochthera sp.,地點衛武營</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 簡伯宇 · 📍 高雄衛武營都會公園</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1034233711676588" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1275100344256589/75384c9ca43d6e70.jpg" alt=""></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">Phorelliosoma hexachaeta</div>
+        <div class="edu-sci">Phorelliosoma hexachaeta</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Phorelliosoma hexachaeta</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Ching Shan Lin</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1275100344256589" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1098605298572762/1d215157411c0ad2.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Calosphenisca unicuneata</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Calosphenisca unicuneata</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 周年富</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1098605298572762" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1089924016107557/915f0757cd3b01dd.jpg" alt="小麗水虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">小麗水虻</div>
+        <div class="edu-sci">Microchrysa sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>作者鑑定小麗水虻Microchrysa sp.經林玉米確認</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Cyrus Li</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1089924016107557" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1078591477240811/5927367cd25f0099.jpg" alt="孟蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">孟蠅</div>
+        <div class="edu-sci">Bengalia sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>吳韋廷+林玉米鑑定孟蠅屬Bengalia，麗蠅科，搶食螞蟻</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Wen-Chi Yeh</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1078591477240811" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="縞蠅科 Lauxaniidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1034313215001971/54f5e1f836087e07.jpg" alt="縞蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">縞蠅</div>
+        <div class="edu-sci">Homoneura sp.</div>
+      </div>
+      <span class="edu-family">縞蠅科 Lauxaniidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Ching Shan Lin鑑定Homoneura sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李文貴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1034313215001971" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035963928170233/328ee75ec514cc7b.jpg" alt="廣口蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">廣口蠅</div>
+        <div class="edu-sci">Neohemigaster sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Neohemigaster sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 詹愷崴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035963928170233" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1222211552878802/5192b1a64dac39a7.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Volucella dimidiata</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu鑑定Volucella dimidiata</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 余素芳</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1222211552878802" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1051963736570252/828024bd56bcb131.jpg" alt="家蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">家蠅</div>
+        <div class="edu-sci">Dichaetomyia sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Dichaetomyia sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Hweishan Lai</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1051963736570252" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1546495190450435/6f743853ab665c1b.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Acidiella longipennis</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育更正為Acidiella longipennis</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李潛龍</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1546495190450435" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="實蠅科 Tephritidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1279041037195853/148256db3ec9cd52.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Zeugodacus scutellatus</div>
+      </div>
+      <span class="edu-family">實蠅科 Tephritidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Zeugodacus scutellatus</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 陳炤宇</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1279041037195853" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1122959742803984/b2a97d147a9a7e76.jpg" alt="窄翅實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">窄翅實蠅</div>
+        <div class="edu-sci">Elaphromyia sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Elaphromyia sp.(窄翅實蠅屬)</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 張君基</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1122959742803984" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035956978170928/c4e62f5e1d31f212.jpg" alt="鷸虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">鷸虻</div>
+        <div class="edu-sci">Chrysopilus sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Chrysopilus sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 詹愷崴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035956978170928" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1546769330423021/48e6737d4eca5885.jpg" alt="長痣實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">長痣實蠅</div>
+        <div class="edu-sci">Acidiostigma sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育留言 Acidiostigma sp. 長痣實蠅</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李潛龍</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1546769330423021" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1206689031097721/5a71ea3d83d3220b.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Campiglossa sororcula</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Campiglossa sororcula</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 蔡育峰 · 📍 台北中正區台大公衛學院</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1206689031097721" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1034283341671625/0f2ef994d6a3728d.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Eumerus sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu(吳宗學)鑑定Eumerus sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 羅美玲</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1034283341671625" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1469481054818516/bda10a82d8f691cf.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Platensina shirozui</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Platensina shirozui</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 周年富</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1469481054818516" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="實蠅科 Tephritidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1269165174850106/cb984fb93bdaae52.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Zeugodacus cilifer</div>
+      </div>
+      <span class="edu-family">實蠅科 Tephritidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Zeugodacus cilifer</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 邱奕頡</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1269165174850106" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="食蚜蠅科 Syrphidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1033522338414392/bfddc2aa69c0998d.jpg" alt="食蚜蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">食蚜蠅</div>
+        <div class="edu-sci">Allobaccha sp.</div>
+      </div>
+      <span class="edu-family">食蚜蠅科 Syrphidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Bill Wu鑑定Allobaccha sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Bill Young</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1033522338414392" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032443661855593/10491f3cbc96a106.jpg" alt="長足虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">長足虻</div>
+        <div class="edu-sci">Dolichopodidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米標註長足虻科Dolichopodidae</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Yuanhung Zheng</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032443661855593" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1098691221897503/95d2157e3ee0c97b.jpg" alt="實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">實蠅</div>
+        <div class="edu-sci">Itosigo kuwayamai</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Itosigo kuwayamai</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 周年富</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1098691221897503" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035976994835593/1088690680cf66ea.jpg" alt="縞蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">縞蠅</div>
+        <div class="edu-sci">Cestrotus sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定縞蠅科，Cestrotus sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 詹愷崴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035976994835593" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="蜂虻科 Bombyliidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035842048182421/ae8eed7e60e036fc.jpg" alt="蜂虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">蜂虻</div>
+        <div class="edu-sci">Ligyra sp.</div>
+      </div>
+      <span class="edu-family">蜂虻科 Bombyliidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>Lin Kai Ti鑑定Ligyra sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 陳奕翔</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035842048182421" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1039393957827230/a6f9eedc1e46957b.jpg" alt="駝舞虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">駝舞虻</div>
+        <div class="edu-sci">Platypalpus sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定Platypalpus sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Syoutei Kaku</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1039393957827230" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032397448526881/57b7bfe8850db42d.jpg" alt="搖蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">搖蚊</div>
+        <div class="edu-sci">Chironomidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米標註#Chironomidae搖蚊</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 郭少亭</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032397448526881" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1497668518666436/41e5b8e3314a1597.jpg" alt="果實蠅"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">果實蠅</div>
+        <div class="edu-sci">Vidalia bidens</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>黃千育鑑定Vidalia bidens</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 張君基</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1497668518666436" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1046047810495178/b93a65acb245360e.jpg" alt="駝舞虻"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">駝舞虻</div>
+        <div class="edu-sci">Hybos sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定Hybos sp.，駝舞虻科</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Bill Young</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1046047810495178" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="大蚊科 Tipulidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035005798266046/6967c5b883f6cc23.jpg" alt="大蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">大蚊</div>
+        <div class="edu-sci">Nephrotoma sp.</div>
+      </div>
+      <span class="edu-family">大蚊科 Tipulidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定Nephrotoma sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李文貴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035005798266046" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032375198529106/2cb79a0f7deb23c2.jpg" alt="平大蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">平大蚊</div>
+        <div class="edu-sci">Pediciidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定平大蚊科Pediciidae</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 王莆</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032375198529106" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032352065198086/b7b2e91065f66831.jpg" alt="亮大蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">亮大蚊</div>
+        <div class="edu-sci">Limoniidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定亮大蚊科Limoniidae</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Yu-Chun Hsiao</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032352065198086" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032482561851703/19efea83fc132878.jpg" alt="蚋"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">蚋</div>
+        <div class="edu-sci">Simuliidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米標註#Simuliidae幼蟲</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 Jyh Jong Cherng</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032482561851703" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="其他">
+  <div class="edu-img" style="min-height:130px"><img src="images/1032407138525912/5649e15ed523aadf.jpg" alt="大蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">大蚊</div>
+        <div class="edu-sci">Tipulidae sp.</div>
+      </div>
+      <span class="edu-family">其他</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定大蚊科Tipulidae</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 郭少亭</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1032407138525912" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div>
+<div class="edu-card" data-fam="毛蚊科 Bibionidae">
+  <div class="edu-img" style="min-height:130px"><img src="images/1035004704932822/fe8384d3941c61ee.jpg" alt="毛蚊"></div>
+  <div class="edu-body">
+    <div class="edu-top">
+      <div>
+        <div class="edu-sp">毛蚊</div>
+        <div class="edu-sci">Plecia sp.</div>
+      </div>
+      <span class="edu-family">毛蚊科 Bibionidae</span>
+      <span class="conf-badge conf-md">信心 85%</span>
+    </div>
+    <div class="edu-evidence"><strong>辨識依據：</strong>林玉米鑑定Plecia sp.</div>
+    <div class="edu-footer">
+      <span class="edu-author">📸 李文貴</span>
+      <a class="edu-link" href="https://www.facebook.com/groups/1031017735331519/posts/1035004704932822" target="_blank">↗ 原貼文</a>
+    </div>
+  </div>
+</div></div>
+</main>
+<script>
+const ALL = document.querySelectorAll(".edu-card");
+function filter(fam) {
+  document.querySelectorAll(".filt-btn").forEach(b => b.classList.toggle("active", b.dataset.fam === fam));
+  ALL.forEach(c => {
+    c.style.display = (!fam || c.dataset.fam === fam) ? "" : "none";
+  });
+}
+// Build filter buttons from data
+const fams = [...new Set([...ALL].map(c => c.dataset.fam).filter(Boolean))];
+const fr = document.getElementById("filters");
+const all = document.createElement("button");
+all.className = "filt-btn active"; all.textContent = "全部"; all.dataset.fam = "";
+all.onclick = () => filter("");
+fr.appendChild(all);
+fams.forEach(f => {
+  const b = document.createElement("button");
+  b.className = "filt-btn"; b.textContent = f.split(" ")[0]; b.dataset.fam = f;
+  b.onclick = () => filter(f);
+  fr.appendChild(b);
+});
+</script>
+</body>
+</html>
